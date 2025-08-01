@@ -30,11 +30,15 @@ jobs:
       #   working-directory: packages/vscode-ide-companion
       #   run: npm install
 
-      # - name: Lint and type check
-      #   working-directory: packages/vscode-ide-companion
-      #   run: |
-      #     npm run lint
-      #     npm run check-types
+      - name: Lint and type check
+        working-directory: packages/vscode-ide-companion
+        run: |
+          npm run check-types
+          npm run lint
+
+      - name: Compile extension
+        working-directory: packages/vscode-ide-companion
+        run: node esbuild.js --production
 
       - name: Build VSIX
         working-directory: packages/vscode-ide-companion
