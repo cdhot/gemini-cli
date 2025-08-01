@@ -42,7 +42,8 @@ jobs:
 
       - name: Build VSIX
         working-directory: packages/vscode-ide-companion
-        run: npm run package
+        # run: npm run package
+        run: npx @vscode/vsce package --no-dependencies
 
       - name: Upload VSIX
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
